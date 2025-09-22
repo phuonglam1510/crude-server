@@ -1,4 +1,4 @@
-import { And, ILike, Like, Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { Resource } from '../entities/resource.entity';
 import { AppDataSource } from '../../../configs/ormconfig';
 
