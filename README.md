@@ -41,8 +41,9 @@ Follow these steps to get the application up and running on your local machine.
 
 Clone the project repository from Git and navigate into the project directory.
 
->git clone  <br/>
->cd my-express-app
+>git clone  https://github.com/phuonglam1510/crude-server
+>
+>cd crude-server
 
 **3. Set Up the Database with Docker**
 
