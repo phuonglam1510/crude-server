@@ -1,4 +1,4 @@
-import { Repository } from 'typeorm';
+import { And, ILike, Like, Repository } from 'typeorm';
 import { Resource } from '../entities/resource.entity';
 import { AppDataSource } from '../../../configs/ormconfig';
 
@@ -14,12 +14,14 @@ export class ResourceService {
         return this.resourceRepository.save(resource);
     }
 
-    async getResources(filter?: string): Promise<Resource[]> {
-        const queryBuilder = this.resourceRepository.createQueryBuilder('resource');
-        if (filter) {
-            queryBuilder.where('resource.name ILIKE :filter OR resource.description ILIKE :filter', { filter: `%${filter}%` });
-        }
-        return queryBuilder.getMany();
+    async getResources(filter: string = ''): Promise<Resource[]> {
+        return this.resourceRepository.find({
+            where: [{
+                name: ILike(`%${filter}%`)
+            }, {
+                description: ILike(`%${filter}%`)
+            }]
+        })
     }
 
     async getResourceById(id: string): Promise<Resource | null> {
