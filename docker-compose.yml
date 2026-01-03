@@ -1,0 +1,73 @@
+# This file is for local development orchestration.
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # Backend API Server
+  api:
+    container_name: backend_api
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgresql://admin:admin@postgres:5432/mydatabase?schema=public"
+      PORT: 4000
+    volumes:
+      - ./apps/api:/usr/src/app
+      - /usr/src/app/node_modules # Mount a volume for node_modules to avoid overwriting
+    restart: unless-stopped
+
+  # End-User Web App
+  web:
+    container_name: user_web_app
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:4000
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    restart: unless-stopped
+
+  # Admin Portal
+  admin:
+    container_name: admin_portal_app
+    build:
+      context: ./apps/admin
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:5173"
+    depends_on:
+      - api
+    environment:
+      - VITE_API_URL=http://localhost:4000
+    volumes:
+      - ./apps/admin:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

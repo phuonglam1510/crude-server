@@ -1,0 +1,13 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json yarn.lock* ./
+
+COPY . .
+
+EXPOSE 5173
+
+# Install dependencies and run dev server
+# This ensures dependencies are installed even with volume mounts
+CMD ["sh", "-c", "yarn install && yarn dev"]

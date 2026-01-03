@@ -1,0 +1,49 @@
+{
+  "common": {
+    "dashboard": "Bảng điều khiển",
+    "resources": "Tài nguyên",
+    "create": "Tạo",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "cancel": "Hủy",
+    "submit": "Gửi",
+    "save": "Lưu",
+    "loading": "Đang tải...",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "actions": "Hành động",
+    "name": "Tên",
+    "description": "Mô tả",
+    "createdAt": "Ngày tạo",
+    "updatedAt": "Ngày cập nhật",
+    "confirm": "Xác nhận",
+    "areYouSure": "Bạn có chắc chắn?",
+    "yes": "Có",
+    "no": "Không"
+  },
+  "layout": {
+    "adminPortal": "Cổng quản trị",
+    "resourceManagementSystem": "Hệ thống quản lý tài nguyên"
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển",
+    "totalResources": "Tổng số tài nguyên"
+  },
+  "resources": {
+    "title": "Tài nguyên",
+    "createResource": "Tạo tài nguyên",
+    "editResource": "Chỉnh sửa tài nguyên",
+    "resourceForm": "Biểu mẫu tài nguyên",
+    "createNewResource": "Tạo tài nguyên mới",
+    "noResourcesFound": "Không tìm thấy tài nguyên. Nhấp vào 'Tạo tài nguyên' để thêm một.",
+    "deleteConfirm": "Bạn có chắc chắn muốn xóa tài nguyên này?",
+    "nameRequired": "Tên là bắt buộc",
+    "descriptionRequired": "Mô tả là bắt buộc",
+    "failedToFetch": "Không thể tải tài nguyên",
+    "failedToCreate": "Không thể tạo tài nguyên",
+    "failedToUpdate": "Không thể cập nhật tài nguyên",
+    "failedToDelete": "Không thể xóa tài nguyên",
+    "failedToFetchSingle": "Không thể tải tài nguyên"
+  }
+}
+

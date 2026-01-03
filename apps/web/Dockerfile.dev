@@ -1,0 +1,17 @@
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json yarn.lock* ./
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose port 3000
+EXPOSE 3000
+
+# Install dependencies and run dev server
+# This ensures dependencies are installed even with volume mounts
+CMD ["sh", "-c", "yarn install && yarn dev"]
