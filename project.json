@@ -1,0 +1,251 @@
+{
+  "methods": [
+    "POST"
+  ],
+  "allow_batch": {
+    "v1": true
+  },
+  "args": {
+    "date": {
+      "description": "Ngày bài viết được xuất bản, theo múi giờ của trang web.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "required": false
+    },
+    "date_gmt": {
+      "description": "Ngày phát hành bài viết, theo giờ GMT.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "required": false
+    },
+    "slug": {
+      "description": "Định danh chữ và số cho bài viết duy nhất theo loại của bài viết.",
+      "type": "string",
+      "required": false
+    },
+    "status": {
+      "description": "Trạng thái có tên của bài viết.",
+      "type": "string",
+      "enum": [
+        "publish",
+        "future",
+        "draft",
+        "pending",
+        "private",
+        "acf-disabled"
+      ],
+      "required": false
+    },
+    "password": {
+      "description": "Mật khẩu để bảo vệ quyền truy cập vào nội dung và mô tả ngắn.",
+      "type": "string",
+      "required": false
+    },
+    "title": {
+      "description": "Tiêu đề cho bài viết.",
+      "type": "object",
+      "properties": {
+        "raw": {
+          "description": "Tiêu đề của bài viết, như có sẵn trong cơ sở dữ liệu.",
+          "type": "string",
+          "context": [
+            "edit"
+          ]
+        },
+        "rendered": {
+          "description": "Tiêu đề HTML của bài viết, dùng để hiển thị. ",
+          "type": "string",
+          "context": [
+            "view",
+            "edit",
+            "embed"
+          ],
+          "readonly": true
+        }
+      },
+      "required": false
+    },
+    "content": {
+      "description": "Nội dung của bài viết.",
+      "type": "object",
+      "properties": {
+        "raw": {
+          "description": "Nội dung của bài viết, nếu nó có sẵn trong cơ sở dữ liệu.",
+          "type": "string",
+          "context": [
+            "edit"
+          ]
+        },
+        "rendered": {
+          "description": "Nội dung HTML của bài viết, dưới dạng hiển thị.",
+          "type": "string",
+          "context": [
+            "view",
+            "edit"
+          ],
+          "readonly": true
+        },
+        "block_version": {
+          "description": "Phiên bản định dạng của nội dung khối được sử dụng bởi bài viết.",
+          "type": "integer",
+          "context": [
+            "edit"
+          ],
+          "readonly": true
+        },
+        "protected": {
+          "description": "Có hay không nội dung được bảo vệ bởi mật khẩu. ",
+          "type": "boolean",
+          "context": [
+            "view",
+            "edit",
+            "embed"
+          ],
+          "readonly": true
+        }
+      },
+      "required": false
+    },
+    "featured_media": {
+      "description": "ID ảnh đại diện của bài viết.",
+      "type": "integer",
+      "required": false
+    },
+    "meta": {
+      "description": "Các trường meta.",
+      "type": "object",
+      "properties": {
+        "_acf_changed": {
+          "type": "boolean",
+          "title": "",
+          "description": "",
+          "default": false
+        }
+      },
+      "required": false
+    },
+    "template": {
+      "description": "File của giao diện sử dụng để hiển thị bài viết.",
+      "type": "string",
+      "required": false
+    },
+    "dien-tich-bds": {
+      "description": "Các term được gán cho một bài viết của taxonomy dien-tich-bds.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "giay-to-phap-ly": {
+      "description": "Các term được gán cho một bài viết của taxonomy giay-to-phap-ly.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "huong-ban-cong": {
+      "description": "Các term được gán cho một bài viết của taxonomy huong-ban-cong.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "huong-nha": {
+      "description": "Các term được gán cho một bài viết của taxonomy huong-nha.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "loai-bds": {
+      "description": "Các term được gán cho một bài viết của taxonomy loai-bds.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "loai-nha": {
+      "description": "Các term được gán cho một bài viết của taxonomy loai-nha.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "bat-dong-san": {
+      "description": "Các term được gán cho một bài viết của taxonomy bat-dong-san.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "muc-gia-bds": {
+      "description": "Các term được gán cho một bài viết của taxonomy muc-gia-bds.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "noi-that-bds": {
+      "description": "Các term được gán cho một bài viết của taxonomy noi-that-bds.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "phuong-xa": {
+      "description": "Các term được gán cho một bài viết của taxonomy phuong-xa.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "quan-huyen": {
+      "description": "Các term được gán cho một bài viết của taxonomy quan-huyen.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "so-tang": {
+      "description": "Các term được gán cho một bài viết của taxonomy so-tang.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "tien-ich": {
+      "description": "Các term được gán cho một bài viết của taxonomy tien-ich.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    "tinh-thanh": {
+      "description": "Các term được gán cho một bài viết của taxonomy tinh-thanh.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "required": false
+    }
+  }
+}

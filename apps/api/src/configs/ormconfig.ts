@@ -1,11 +1,12 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { Resource } from '../modules/resource/entities/resource.entity';
 import { User } from '../modules/auth/entities/user.entity';
+import { SyncJob } from '../modules/sync/entities/sync-job.entity';
 
 // Parse DATABASE_URL if provided, otherwise use individual env vars or defaults
 const getDbConfig = (): DataSourceOptions => {
     const databaseUrl = process.env.DATABASE_URL;
-    
+
     if (databaseUrl) {
         // Parse DATABASE_URL: postgresql://user:password@host:port/database
         const url = new URL(databaseUrl);
@@ -18,10 +19,10 @@ const getDbConfig = (): DataSourceOptions => {
             database: url.pathname.slice(1), // Remove leading '/'
             synchronize: true,
             logging: true,
-            entities: [Resource, User]
+            entities: [Resource, User, SyncJob]
         };
     }
-    
+
     // Fallback to individual environment variables or defaults
     return {
         type: 'postgres',
@@ -32,7 +33,7 @@ const getDbConfig = (): DataSourceOptions => {
         database: process.env.DB_NAME || 'mydatabase',
         synchronize: true,
         logging: true,
-        entities: [Resource]
+        entities: [Resource, User, SyncJob]
     };
 };
 

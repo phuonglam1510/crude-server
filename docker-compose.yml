@@ -16,6 +16,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  # Redis for Job Queue
+  redis:
+    image: redis:7-alpine
+    container_name: redis_queue
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
   # Backend API Server
   api:
     container_name: backend_api
@@ -26,9 +37,12 @@ services:
       - "4000:4000"
     depends_on:
       - postgres
+      - redis
     environment:
       DATABASE_URL: "postgresql://admin:admin@postgres:5432/mydatabase?schema=public"
       PORT: 4000
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
     volumes:
       - ./apps/api:/usr/src/app
       - /usr/src/app/node_modules # Mount a volume for node_modules to avoid overwriting
@@ -71,3 +85,4 @@ services:
 
 volumes:
   postgres_data:
+  redis_data:
