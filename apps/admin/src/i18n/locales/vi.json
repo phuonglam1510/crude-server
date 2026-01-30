@@ -2,6 +2,8 @@
   "common": {
     "dashboard": "Bảng điều khiển",
     "resources": "Tài nguyên",
+    "properties": "Bất động sản (PHP)",
+    "syncJobs": "Công việc đồng bộ",
     "create": "Tạo",
     "edit": "Chỉnh sửa",
     "delete": "Xóa",
@@ -44,6 +46,26 @@
     "failedToUpdate": "Không thể cập nhật tài nguyên",
     "failedToDelete": "Không thể xóa tài nguyên",
     "failedToFetchSingle": "Không thể tải tài nguyên"
+  },
+  "properties": {
+    "titlePage": "Bất động sản từ PHP",
+    "loginToPhp": "Đăng nhập máy chủ PHP",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "loginRequired": "Đăng nhập máy chủ PHP để tải và đồng bộ bất động sản.",
+    "title": "Tiêu đề",
+    "address": "Địa chỉ",
+    "area": "Diện tích (m²)",
+    "price": "Giá",
+    "province": "Tỉnh/TP",
+    "district": "Quận/Huyện",
+    "syncSelected": "Đồng bộ đã chọn",
+    "selectAtLeastOne": "Chọn ít nhất một bất động sản.",
+    "syncQueued": "Đã đưa công việc đồng bộ vào hàng đợi.",
+    "viewSyncJobs": "Xem công việc đồng bộ",
+    "viewJobs": "Xem công việc"
   }
 }
 

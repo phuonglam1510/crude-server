@@ -46,8 +46,8 @@ export interface Property {
     car_parking?: number;
 
     // Directions (arrays of IDs from relationships)
-    house_directions?: number[]; // HouseDirection.direction IDs -> maps to huong-nha
-    house_balcony_directions?: number[]; // HouseBalconyDirection.balcony IDs -> maps to huong-ban-cong
+    house_directions?: { direction: string, id: number }[]; // HouseDirection.direction IDs -> maps to huong-nha
+    house_balcony_directions?: { direction: string, id: number }[]; // HouseBalconyDirection.balcony IDs -> maps to huong-ban-cong
 
     // Legal & ownership
     ownership?: number; // Dictionary Ownership ID -> maps to giay-to-phap-ly

@@ -7,6 +7,8 @@ import AdminLayout from './components/layout/AdminLayout';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ResourcesList from './pages/Resources/ResourcesList';
 import CreateResource from './pages/Resources/CreateResource';
+import PropertiesFromPhp from './pages/PropertiesFromPhp/PropertiesFromPhp';
+import SyncJobs from './pages/SyncJobs/SyncJobs';
 
 const theme = createTheme();
 
@@ -32,6 +34,8 @@ const AppRoutes: React.FC = () => {
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/resources" element={<ResourcesList />} />
                 <Route path="/resources/new" element={<CreateResource />} />
+                <Route path="/properties" element={<PropertiesFromPhp />} />
+                <Route path="/sync-jobs" element={<SyncJobs />} />
                 <Route path="*" element={<Navigate to={`/${lang || defaultLanguage}/`} replace />} />
             </Routes>
         </AdminLayout>

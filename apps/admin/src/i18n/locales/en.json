@@ -2,6 +2,8 @@
   "common": {
     "dashboard": "Dashboard",
     "resources": "Resources",
+    "properties": "Properties (PHP)",
+    "syncJobs": "Sync Jobs",
     "create": "Create",
     "edit": "Edit",
     "delete": "Delete",
@@ -44,6 +46,26 @@
     "failedToUpdate": "Failed to update resource",
     "failedToDelete": "Failed to delete resource",
     "failedToFetchSingle": "Failed to fetch resource"
+  },
+  "properties": {
+    "titlePage": "Properties from PHP",
+    "loginToPhp": "Log in to PHP server",
+    "login": "Log in",
+    "logout": "Log out",
+    "email": "Email",
+    "password": "Password",
+    "loginRequired": "Log in to the PHP server to load and sync properties.",
+    "title": "Title",
+    "address": "Address",
+    "area": "Area (m²)",
+    "price": "Price",
+    "province": "Province",
+    "district": "District",
+    "syncSelected": "Sync selected",
+    "selectAtLeastOne": "Select at least one property.",
+    "syncQueued": "Sync job queued.",
+    "viewSyncJobs": "View sync jobs",
+    "viewJobs": "View jobs"
   }
 }
 
